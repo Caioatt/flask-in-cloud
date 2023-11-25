@@ -1,0 +1,102 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>LISTA DE MOTIVOS</title>
+    </head>
+
+    <body>
+
+    <style>
+
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .container {
+        width: 80%;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+    }
+
+    li {
+        background-color: #fff;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .delete-button {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .delete-button:hover {
+        background-color: #c82333;
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+        background-color: #0056b3;
+    }
+
+
+    </style>
+        <div class="container">
+            <h1>LISTA DE MOTIVOS</h1>
+            <br><br>
+            <ul>
+                {% for motivo in motivos %}
+                <li>
+                    {{ motivo.descricao_chamada }}
+                    <button class="delete-button" data-id="{{ motivo.id }}">APAGAR</button>
+                </li>
+                {% endfor %}
+            </ul>
+            <br><br><br>
+            <center><a href="{{ url_for('adicionar_motivo') }}">ADICIONAR MOTIVO</a></center>
+        </div>
+    </body>
+
+    </html>

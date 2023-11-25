@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Adicionar Motivo</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 50%;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button, a {
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 48%; 
+        }
+
+        .btn-add {
+            background-color: #007bff;
+        }
+
+        .btn-add:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-back {
+            background-color: #007bff;
+            width: 40%;
+            height: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+            width: 40%;
+            height: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+
+    <div class="container">
+        <h1>ADICIONAR MOTIVO</h1>
+        <form method="POST" action="{{ url_for('adicionar_motivo') }}">
+            {{ form.hidden_tag() }}
+            <label for="descricao_chamada">Descrição da Chamada:</label>
+            {{ form.descricao_chamada() }}
+            <div class="button-container">
+                <button class="btn-add" type="submit">Adicionar</button>
+                <a class="btn-back" href="{{ url_for('index') }}">&#8203 &#8203 &#8203 &#8203 Voltar</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
